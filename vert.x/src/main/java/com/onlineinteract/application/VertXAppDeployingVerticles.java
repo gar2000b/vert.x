@@ -5,9 +5,9 @@ import com.onlineinteract.verticles.MyVerticle;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 
-public class VertxAppDeployingVerticles {
+public class VertXAppDeployingVerticles {
 
-	public VertxAppDeployingVerticles() {
+	public VertXAppDeployingVerticles() {
 		Vertx vertx = Vertx.vertx(new VertxOptions().setWorkerPoolSize(40));
 		vertx.deployVerticle(new MyVerticle());
 	}
@@ -18,7 +18,7 @@ public class VertxAppDeployingVerticles {
 	
 	public static void main(String[] args) {
 		System.out.println("Running...");
-		VertxAppDeployingVerticles verticles = new VertxAppDeployingVerticles();
+		VertXAppDeployingVerticles verticles = new VertXAppDeployingVerticles();
 		String result = verticles.someMethod();
 		System.out.println(result);
 	}
