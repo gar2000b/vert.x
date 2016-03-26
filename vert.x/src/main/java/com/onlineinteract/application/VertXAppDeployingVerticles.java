@@ -2,6 +2,7 @@ package com.onlineinteract.application;
 
 import com.onlineinteract.verticles.MyVerticle;
 
+import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 
@@ -13,7 +14,7 @@ public class VertXAppDeployingVerticles {
 	public VertXAppDeployingVerticles() {
 		vertx = Vertx.vertx(new VertxOptions().setWorkerPoolSize(40));
 
-		// deploying a standard verticle.
+		// deploying a standard verticle
 		vertx.deployVerticle(new MyVerticle(), res -> {
 			if (res.succeeded()) {
 				deploymentID = res.result();
@@ -23,9 +24,11 @@ public class VertXAppDeployingVerticles {
 			}
 		});
 
-		// can also deploy verticle using it's name. In java this is the fqn of
-		// the class.
-		// vertx.deployVerticle("com.onlineinteract.verticles.MyVerticle");
+/*		 Can also deploy verticle using it's name. In java this is the fqn of
+		 the class. Also creating 4 instances to utilise say 4 cpu cores
+		 effectively. */
+		// DeploymentOptions options = new DeploymentOptions().setInstances(4);
+		// vertx.deployVerticle("com.onlineinteract.verticles.MyVerticle", options);
 	}
 
 	private void undeployVerticles() {
