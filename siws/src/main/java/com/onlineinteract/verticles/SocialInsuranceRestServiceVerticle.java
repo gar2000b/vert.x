@@ -35,5 +35,7 @@ public class SocialInsuranceRestServiceVerticle extends AbstractVerticle{
 	}
 
 	public void stop() {
+		// System.out.println("Server shutting down");
+		// server.shutdown();
 	}
 }
