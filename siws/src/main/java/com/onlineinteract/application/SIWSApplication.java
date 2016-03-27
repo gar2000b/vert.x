@@ -7,7 +7,7 @@ import io.vertx.core.VertxOptions;
 
 public class SIWSApplication {
 
-	private String deploymentID;
+	// private String deploymentID;
 	private Vertx vertx;
 
 	public SIWSApplication() {
@@ -15,7 +15,7 @@ public class SIWSApplication {
 
 		vertx.deployVerticle(new SocialInsuranceRestServiceVerticle(), res -> {
 			if (res.succeeded()) {
-				deploymentID = res.result();
+				res.result();
 				System.out.println("Deployment id is: " + res.result());
 			} else {
 				System.out.println("Deployment failed!");
@@ -23,7 +23,7 @@ public class SIWSApplication {
 		});
 	}
 
-	private void undeployVerticles() {
+	/*private void undeployVerticles() {
 		System.out.println("Do we even get here");
 		vertx.undeploy(deploymentID, res -> {
 			System.out.println("* undeploying verticles");
@@ -33,10 +33,10 @@ public class SIWSApplication {
 				System.out.println("Undeploy failed!");
 			}
 		});
-	}
+	}*/
 	
 	public static void main(String[] args) {
 		System.out.println("Running Social Insurance Workflow Service (SIWS) Application.");
-		SIWSApplication siwsApplication = new SIWSApplication();
+		new SIWSApplication();
 	}
 }
