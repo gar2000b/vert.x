@@ -2,7 +2,6 @@ package com.onlineinteract.application;
 
 import com.onlineinteract.verticles.MyVerticle;
 
-import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 
