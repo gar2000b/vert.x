@@ -1,5 +1,6 @@
 package com.onlineinteract.application;
 
+import com.onlineinteract.morphia.MorphiaAppDriver;
 import com.onlineinteract.verticles.SocialInsuranceRestServiceVerticle;
 
 import io.vertx.core.Vertx;
@@ -11,6 +12,9 @@ public class SIWSApplication {
 	private Vertx vertx;
 
 	public SIWSApplication() {
+		// Initiate Morphia Driver before proceeding.
+		MorphiaAppDriver.getInstance();
+		
 		vertx = Vertx.vertx(new VertxOptions().setWorkerPoolSize(40));
 
 		vertx.deployVerticle(new SocialInsuranceRestServiceVerticle(), res -> {
@@ -37,6 +41,6 @@ public class SIWSApplication {
 	
 	public static void main(String[] args) {
 		System.out.println("Running Social Insurance Workflow Service (SIWS) Application.");
-		SIWSApplication siwsApplication = new SIWSApplication();
+		new SIWSApplication();
 	}
 }
