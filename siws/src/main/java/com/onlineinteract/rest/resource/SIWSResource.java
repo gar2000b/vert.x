@@ -7,7 +7,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.onlineinteract.model.Customer;
 import com.onlineinteract.model.SINRequestResponse;
 import com.onlineinteract.morphia.MorphiaAppDriver;
 
@@ -32,13 +31,7 @@ public class SIWSResource {
 	}
 
 	private void insertSINRequest(String requestNo, String customerId) {
-		
 		SINRequestResponse sinRequestResponse = new SINRequestResponse(requestNo, customerId);
-		
-		// TODO, persist customer infromation in future story.
-//		Customer customer = new Customer("Gary", "Black", "JG410825B");
-//		sinRequestResponse.setCustomer(customer);
-		
 		MorphiaAppDriver.saveData(sinRequestResponse);
 	}
 }

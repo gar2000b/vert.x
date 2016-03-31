@@ -10,15 +10,16 @@ public class Customer {
     @Id
     private ObjectId id;
 	
-    private String customerId;
 	private String forname;
 	private String surname;
 	private String SIN;
+	private String customerId;
 	
 	// Note: important - needs empty constructor.
 	public Customer(){}
 	
-	public Customer(String forname, String surname, String sIN) {
+	public Customer(String customerId, String forname, String surname, String sIN) {
+		this.customerId = customerId;
 		this.forname = forname;
 		this.surname = surname;
 		SIN = sIN;
@@ -40,6 +41,11 @@ public class Customer {
 	}
 	public void setSIN(String sIN) {
 		SIN = sIN;
+	}
+	
+	@Override
+	public String toString() {
+		return "blah";
 	}
 
 	public String getCustomerId() {
