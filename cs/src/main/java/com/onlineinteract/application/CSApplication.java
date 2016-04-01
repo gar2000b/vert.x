@@ -10,6 +10,7 @@ public class CSApplication {
 
 	private String deploymentID;
 	private Vertx vertx;
+	public static String BASE_PORT_NUMBER;
 
 	public CSApplication() {
 		// Initiate Morphia Driver before proceeding.
@@ -40,6 +41,13 @@ public class CSApplication {
 	}
 	
 	public static void main(String[] args) {
+		
+		if(args.length > 0 && args[0] != null && args[0] != ""){
+			BASE_PORT_NUMBER = args[0];
+		} else {
+			BASE_PORT_NUMBER = "8080";
+		}
+		
 		System.out.println("Running Social Insurance Workflow Service (SIWS) Application.");
 		new CSApplication();
 	}

@@ -41,4 +41,10 @@ public class SINRequestResponse {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+	public ObjectId getId() {
+		return id;
+	}
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
 }

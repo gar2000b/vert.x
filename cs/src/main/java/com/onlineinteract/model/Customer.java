@@ -1,18 +1,26 @@
 package com.onlineinteract.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
 @Entity
+@XmlRootElement
 public class Customer {
 
     @Id
     private ObjectId id;
 	
+    @XmlElement
 	private String forname;
+    @XmlElement
 	private String surname;
+    @XmlElement
 	private String SIN;
+    @XmlElement
 	private String customerId;
 	
 	// Note: important - needs empty constructor.

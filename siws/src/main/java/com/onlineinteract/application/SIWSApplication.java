@@ -10,6 +10,8 @@ public class SIWSApplication {
 
 	private String deploymentID;
 	private Vertx vertx;
+	public static String CS_ADDRESS;
+	public static String BASE_PORT_NUMBER;
 
 	public SIWSApplication() {
 		// Initiate Morphia Driver before proceeding.
@@ -38,9 +40,22 @@ public class SIWSApplication {
 			}
 		});
 	}
-	
+
 	public static void main(String[] args) {
-		System.out.println("Running Social Insurance Workflow Service (SIWS) Application.");
+		
+		if(args.length > 0 && args[0] != null && args[0] != ""){
+			BASE_PORT_NUMBER = args[0];
+		} else {
+			BASE_PORT_NUMBER = "8080";
+		}
+		
+		if(args.length == 2 && args[1] != null && args[1] != ""){
+			CS_ADDRESS = args[1];
+		} else {
+			CS_ADDRESS = "localhost:8081";
+		}
+		
+		System.out.println("Running Social Insurance Workflow Service (SIWS) Application. CS Address is: " + CS_ADDRESS);
 		new SIWSApplication();
 	}
 }

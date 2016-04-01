@@ -6,11 +6,13 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
+import com.onlineinteract.application.CSApplication;
+
 import io.vertx.core.AbstractVerticle;
 
 public class CustomerRestServiceVerticle extends AbstractVerticle{
 	
-	public static final String BASE_URI = "http://0.0.0.0:8080/cs/";
+	public static final String BASE_URI = "http://0.0.0.0:" + CSApplication.BASE_PORT_NUMBER + "/cs/";
 	private HttpServer server;
 	
 	public void start() {

@@ -6,11 +6,13 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
+import com.onlineinteract.application.SIWSApplication;
+
 import io.vertx.core.AbstractVerticle;
 
 public class SocialInsuranceRestServiceVerticle extends AbstractVerticle{
 	
-	public static final String BASE_URI = "http://0.0.0.0:8080/siws/";
+	public static final String BASE_URI = "http://0.0.0.0:" + SIWSApplication.BASE_PORT_NUMBER + "/siws/";
 	private HttpServer server;
 	
 	public void start() {
