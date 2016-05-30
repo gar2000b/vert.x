@@ -1,36 +1,34 @@
 package com.onlineinteract.model;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
 
-@Entity
-@XmlRootElement
+//@Entity
+//@XmlRootElement
 public class Customer {
 
-    @Id
+//    @Id
     private ObjectId id;
 	
-    @XmlElement
+//    @XmlElement
 	private String forname;
-    @XmlElement
+//    @XmlElement
 	private String surname;
-    @XmlElement
-	private String SIN;
-    @XmlElement
+//    @XmlElement
+	private String sin;
+//    @XmlElement
 	private String customerId;
+	
+	private String csuuid;
 	
 	// Note: important - needs empty constructor.
 	public Customer(){}
 	
-	public Customer(String customerId, String forname, String surname, String sIN) {
+	public Customer(String customerId, String forname, String surname, String sin, String csuuid) {
 		this.customerId = customerId;
 		this.forname = forname;
 		this.surname = surname;
-		SIN = sIN;
+		this.sin = sin;
+		this.csuuid = csuuid;
 	}
 	public String getForname() {
 		return forname;
@@ -44,16 +42,16 @@ public class Customer {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public String getSIN() {
-		return SIN;
+	public String getSin() {
+		return sin;
 	}
-	public void setSIN(String sIN) {
-		SIN = sIN;
+	public void setSin(String sin) {
+		this.sin = sin;
 	}
 	
 	@Override
 	public String toString() {
-		return "blah";
+		return "blah: blah";
 	}
 
 	public String getCustomerId() {
@@ -62,5 +60,13 @@ public class Customer {
 
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
+	}
+
+	public String getCsuuid() {
+		return csuuid;
+	}
+
+	public void setCsuuid(String csuuid) {
+		this.csuuid = csuuid;
 	}
 }

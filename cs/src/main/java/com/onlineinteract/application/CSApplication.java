@@ -1,6 +1,7 @@
 package com.onlineinteract.application;
 
-import com.onlineinteract.morphia.MorphiaAppDriver;
+import java.util.UUID;
+
 import com.onlineinteract.verticles.CustomerRestServiceVerticle;
 
 import io.vertx.core.Vertx;
@@ -10,11 +11,10 @@ public class CSApplication {
 
 	private String deploymentID;
 	private Vertx vertx;
-	public static String BASE_PORT_NUMBER;
+	public static String BASE_PORT_NUMBER = "8085";
+	public static UUID APP_ID = UUID.randomUUID();
 
 	public CSApplication() {
-		// Initiate Morphia Driver before proceeding.
-		MorphiaAppDriver.getInstance();
 		
 		vertx = Vertx.vertx(new VertxOptions().setWorkerPoolSize(40));
 
@@ -28,6 +28,7 @@ public class CSApplication {
 		});
 	}
 
+	@SuppressWarnings("unused")
 	private void undeployVerticles() {
 		System.out.println("Do we even get here");
 		vertx.undeploy(deploymentID, res -> {
@@ -42,13 +43,7 @@ public class CSApplication {
 	
 	public static void main(String[] args) {
 		
-		if(args.length > 0 && args[0] != null && args[0] != ""){
-			BASE_PORT_NUMBER = args[0];
-		} else {
-			BASE_PORT_NUMBER = "8080";
-		}
-		
-		System.out.println("Running Social Insurance Workflow Service (SIWS) Application.");
+		System.out.println("Running Customer Service (CS) Application with UUID of " + APP_ID);
 		new CSApplication();
 	}
 }
