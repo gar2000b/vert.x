@@ -11,8 +11,8 @@ public class SIWSApplication {
 
 	private String deploymentID;
 	private Vertx vertx;
-	public static String CS_ADDRESS = "cs.xavier.apcera-platform.io";
-	// public static String CS_ADDRESS = "localhost:8085";
+	// public static String CS_ADDRESS = "cs.experian.apcera-platform.io";
+	public static String CS_ADDRESS = "localhost:8085";
 	public static String BASE_PORT_NUMBER = "8080";
 	public static UUID APP_ID = UUID.randomUUID();
 
